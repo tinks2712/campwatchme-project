@@ -40,14 +40,26 @@ Using `minimap2` (v2.30), we apply specific flags to handle the unique character
 - `-z 600,200`: Increases the Z-drop score from the default 400. This prevents the splitting of ultra-long reads in regions with high insertion/deletion rates.
 - `-Y`: Enables soft-clipping for supplementary alignments, preserving unaligned bases for downstream analysis.
 
-### 2. DeepTrio Variant Calling (v1.10.0)
+### 2. Alignment Parameter Benchmarking
+To address the lower alignment rates observed in Samples 17 and 23, several experimental parameter sets were tested in `minimap-diff-parameters-trial/`:
+
+| Trial | Name | Parameters Tested | Purpose |
+|-------|------|-------------------|---------|
+| Trial 1 | `drop-z-score` | `-z 400,200` | Testing standard Z-drop score vs optimized 600. |
+| Trial 2 | `drop-s-80-to-40` | `-z 400,200 -s 40` | Loosening minimal peak SW score (default 80) to 40. |
+| Trial 3 | `drop-min-chain-score` | `-z 400,200 --min-chain-score 20` | Reducing min chain score (default 40) to 20. |
+| Trial 4 | `drop-all` | `-z 400,200 -s 40 --min-chain-score 20` | Combined loosening of Z-drop, SW score, and chain score. |
+
+These trials help determine if more permissive alignment settings improve coverage in samples with flow cell defects without introducing excessive noise.
+
+### 3. DeepTrio Variant Calling (v1.10.0)
 DeepTrio jointly analyzes the trio to improve Mendelian consistency. Due to the high computational demand, the environment is tuned for HPC stability:
 - **PID Limit (`--pids-limit 8192`)**: DeepTrio generates hundreds of helper processes; increasing this prevents container crashes.
 - **Thread Management**: `OPENBLAS_NUM_THREADS=1` and `OMP_NUM_THREADS=1` are set to prevent thread explosion (exponentially increasing threads across shards), which can lead to "Resource temporarily unavailable" errors.
 - **Memory Allocation**: `MALLOC_ARENA_MAX=2` limits the number of memory pools, preventing overhead and background thread creation failures in `jemalloc`.
 - **Parallelization**: `num_shards` is set to 8 to balance throughput and resource constraints.
 
-### 3. Handling Unmapped Reads
+### 4. Handling Unmapped Reads
 For samples with lower alignment rates (Sample 17 and 23), unmapped reads are extracted for further investigation (e.g., BLAST analysis) to identify potential contaminants or non-human sequences:
 - `samtools fasta -f 4 -F 0`: Specifically extracts unmapped reads while retaining secondary/supplementary info.
 
@@ -74,6 +86,11 @@ bash scripts/alignment_repeat_req_flags.sh
 DeepTrio runs in the background using `nohup`. Logs are directed to `deeptrio_output/deeptrio_run.log`.
 ```bash
 bash scripts/deeptrio_output_run.sh
+```
+
+### Run Parameter Trials
+```bash
+bash minimap-diff-parameters-trial/rerun_missing_samples.sh
 ```
 
 ### Extract Unmapped Reads
