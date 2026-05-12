@@ -1,0 +1,198 @@
+nohup: ignoring input
+Tue May  5 03:17:52 PM CDT 2026 - Starting alignment: sample-11-female
+[M::mm_idx_gen::32.019*1.58] collected minimizers
+[M::mm_idx_gen::33.974*2.30] sorted minimizers
+[M::main::33.974*2.30] loaded/built the index for 195 target sequence(s)
+[M::mm_mapopt_update::35.061*2.26] mid_occ = 694
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 195
+[M::mm_idx_stat::35.615*2.24] distinct minimizers: 100167746 (38.80% are singletons); average occurrences: 5.519; average spacing: 5.607; total length: 3099922541
+[M::worker_pipeline::84.026*10.32] mapped 99933 sequences
+[M::worker_pipeline::120.945*13.09] mapped 94941 sequences
+[M::worker_pipeline::156.036*14.57] mapped 93237 sequences
+[M::worker_pipeline::191.094*15.53] mapped 91632 sequences
+[M::worker_pipeline::228.801*16.10] mapped 89409 sequences
+[M::worker_pipeline::292.940*16.91] mapped 77873 sequences
+[M::worker_pipeline::303.442*16.84] mapped 77659 sequences
+[M::worker_pipeline::344.306*17.17] mapped 77822 sequences
+[M::worker_pipeline::382.921*17.41] mapped 77614 sequences
+[M::worker_pipeline::419.640*17.63] mapped 78347 sequences
+[M::worker_pipeline::458.560*17.80] mapped 75584 sequences
+[M::worker_pipeline::522.857*18.04] mapped 78763 sequences
+[M::worker_pipeline::534.796*18.01] mapped 73274 sequences
+[M::worker_pipeline::574.249*18.14] mapped 77811 sequences
+[M::worker_pipeline::611.498*18.23] mapped 77686 sequences
+[M::worker_pipeline::649.940*18.32] mapped 72700 sequences
+[M::worker_pipeline::687.373*18.39] mapped 77329 sequences
+[M::worker_pipeline::752.292*18.50] mapped 79757 sequences
+[M::worker_pipeline::761.439*18.42] mapped 74314 sequences
+[M::worker_pipeline::805.642*18.42] mapped 77751 sequences
+[M::worker_pipeline::843.133*18.49] mapped 77697 sequences
+[M::worker_pipeline::883.012*18.53] mapped 72611 sequences
+[M::worker_pipeline::920.288*18.58] mapped 77742 sequences
+[M::worker_pipeline::985.490*18.66] mapped 77519 sequences
+[M::worker_pipeline::995.581*18.61] mapped 78680 sequences
+[M::worker_pipeline::1038.502*18.61] mapped 77714 sequences
+[M::worker_pipeline::1075.271*18.64] mapped 77772 sequences
+[M::worker_pipeline::1112.704*18.67] mapped 78615 sequences
+[M::worker_pipeline::1150.945*18.70] mapped 77765 sequences
+[M::worker_pipeline::1219.442*18.76] mapped 77315 sequences
+[M::worker_pipeline::1231.436*18.73] mapped 74385 sequences
+[M::worker_pipeline::1270.716*18.76] mapped 77336 sequences
+[M::worker_pipeline::1308.045*18.79] mapped 77830 sequences
+[M::worker_pipeline::1346.737*18.82] mapped 77061 sequences
+[M::worker_pipeline::1411.755*18.86] mapped 77790 sequences
+[M::worker_pipeline::1423.544*18.82] mapped 73887 sequences
+[M::worker_pipeline::1466.302*18.85] mapped 77760 sequences
+[M::worker_pipeline::1503.641*18.87] mapped 77714 sequences
+[M::worker_pipeline::1542.499*18.89] mapped 77069 sequences
+[M::worker_pipeline::1579.534*18.91] mapped 77407 sequences
+[M::worker_pipeline::1652.084*18.91] mapped 75732 sequences
+[M::worker_pipeline::1660.939*18.87] mapped 76310 sequences
+[M::worker_pipeline::1704.752*18.87] mapped 78574 sequences
+[M::worker_pipeline::1742.283*18.89] mapped 76769 sequences
+[M::worker_pipeline::1782.883*18.90] mapped 75005 sequences
+[M::worker_pipeline::1818.474*18.92] mapped 88436 sequences
+[M::worker_pipeline::1881.707*18.95] mapped 87209 sequences
+[M::worker_pipeline::1890.821*18.92] mapped 86166 sequences
+[M::worker_pipeline::1931.798*18.94] mapped 72168 sequences
+[M::worker_pipeline::1967.628*18.95] mapped 85222 sequences
+[M::worker_pipeline::2003.963*18.97] mapped 81029 sequences
+[M::worker_pipeline::2043.320*18.98] mapped 77455 sequences
+[M::worker_pipeline::2108.365*19.00] mapped 78302 sequences
+[M::worker_pipeline::2119.283*18.98] mapped 78267 sequences
+[M::worker_pipeline::2161.211*18.99] mapped 76248 sequences
+[M::worker_pipeline::2198.591*19.01] mapped 78599 sequences
+[M::worker_pipeline::2236.523*19.01] mapped 79012 sequences
+[M::worker_pipeline::2274.651*19.03] mapped 82894 sequences
+[M::worker_pipeline::2341.238*19.05] mapped 78231 sequences
+[M::worker_pipeline::2349.932*19.02] mapped 76671 sequences
+[M::worker_pipeline::2393.146*19.03] mapped 74446 sequences
+[M::worker_pipeline::2431.272*19.05] mapped 78745 sequences
+[M::worker_pipeline::2469.634*19.06] mapped 84835 sequences
+[M::worker_pipeline::2539.907*19.07] mapped 79483 sequences
+[M::worker_pipeline::2543.296*19.04] mapped 78229 sequences
+[M::worker_pipeline::2591.964*19.01] mapped 78286 sequences
+[M::worker_pipeline::2630.082*19.02] mapped 84178 sequences
+[M::worker_pipeline::2668.202*19.03] mapped 79301 sequences
+[M::worker_pipeline::2704.875*19.04] mapped 75887 sequences
+[M::worker_pipeline::2770.059*19.06] mapped 77301 sequences
+[M::worker_pipeline::2779.663*19.04] mapped 89331 sequences
+[M::worker_pipeline::2819.482*19.05] mapped 82012 sequences
+[M::worker_pipeline::2858.696*19.05] mapped 79332 sequences
+[M::worker_pipeline::2897.388*19.05] mapped 77427 sequences
+[M::worker_pipeline::2934.791*19.06] mapped 92118 sequences
+[M::worker_pipeline::3004.720*19.08] mapped 81927 sequences
+[M::worker_pipeline::3017.741*19.06] mapped 79197 sequences
+[M::worker_pipeline::3057.208*19.07] mapped 82537 sequences
+[M::worker_pipeline::3094.709*19.08] mapped 84388 sequences
+[M::worker_pipeline::3131.847*19.09] mapped 84228 sequences
+[M::worker_pipeline::3171.225*19.09] mapped 86907 sequences
+[M::worker_pipeline::3237.754*19.11] mapped 83534 sequences
+[M::worker_pipeline::3247.359*19.09] mapped 84669 sequences
+[M::worker_pipeline::3292.285*19.08] mapped 96845 sequences
+[M::worker_pipeline::3332.274*19.08] mapped 81563 sequences
+[M::worker_pipeline::3373.329*19.09] mapped 75887 sequences
+[M::worker_pipeline::3412.237*19.10] mapped 93700 sequences
+[M::worker_pipeline::3481.609*19.11] mapped 85954 sequences
+[M::worker_pipeline::3493.494*19.09] mapped 77675 sequences
+[M::worker_pipeline::3539.565*19.10] mapped 94980 sequences
+[M::worker_pipeline::3581.255*19.11] mapped 90342 sequences
+[M::worker_pipeline::3622.554*19.11] mapped 80964 sequences
+[M::worker_pipeline::3662.453*19.12] mapped 106475 sequences
+[M::worker_pipeline::3732.914*19.13] mapped 86674 sequences
+[M::worker_pipeline::3742.896*19.11] mapped 83796 sequences
+[M::worker_pipeline::3791.925*19.12] mapped 98231 sequences
+[M::worker_pipeline::3832.866*19.12] mapped 87788 sequences
+[M::worker_pipeline::3874.568*19.12] mapped 100905 sequences
+[M::worker_pipeline::3942.625*19.13] mapped 96300 sequences
+[M::worker_pipeline::3955.143*19.13] mapped 80804 sequences
+[M::worker_pipeline::3995.701*19.14] mapped 111063 sequences
+[M::worker_pipeline::4037.424*19.14] mapped 76552 sequences
+[M::worker_pipeline::4077.349*19.15] mapped 76991 sequences
+[M::worker_pipeline::4118.429*19.15] mapped 81624 sequences
+[M::worker_pipeline::4190.391*19.16] mapped 81393 sequences
+[M::worker_pipeline::4195.599*19.14] mapped 83638 sequences
+[M::worker_pipeline::4257.414*19.07] mapped 86564 sequences
+[M::worker_pipeline::4300.417*19.08] mapped 95005 sequences
+[M::worker_pipeline::4339.077*19.08] mapped 101190 sequences
+[M::worker_pipeline::4380.391*19.08] mapped 114541 sequences
+[M::worker_pipeline::4451.672*19.09] mapped 99902 sequences
+[M::worker_pipeline::4462.211*19.07] mapped 113410 sequences
+[M::worker_pipeline::4507.172*19.07] mapped 90168 sequences
+[M::worker_pipeline::4547.050*19.08] mapped 121679 sequences
+[M::worker_pipeline::4587.698*19.09] mapped 108504 sequences
+[M::worker_pipeline::4626.795*19.09] mapped 97348 sequences
+[M::worker_pipeline::4696.150*19.10] mapped 100881 sequences
+[M::worker_pipeline::4704.412*19.08] mapped 82620 sequences
+[M::worker_pipeline::4749.224*19.08] mapped 81285 sequences
+[M::worker_pipeline::4791.835*19.09] mapped 81083 sequences
+[M::worker_pipeline::4838.474*19.08] mapped 78812 sequences
+[M::worker_pipeline::4878.804*19.09] mapped 76593 sequences
+[M::worker_pipeline::4949.302*19.10] mapped 107858 sequences
+[M::worker_pipeline::4958.806*19.08] mapped 106423 sequences
+[M::worker_pipeline::5003.984*19.08] mapped 116583 sequences
+[M::worker_pipeline::5044.135*19.09] mapped 99221 sequences
+[M::worker_pipeline::5088.588*19.09] mapped 98120 sequences
+[M::worker_pipeline::5160.223*19.10] mapped 118963 sequences
+[M::worker_pipeline::5168.639*19.07] mapped 109128 sequences
+[M::worker_pipeline::5224.633*19.04] mapped 81999 sequences
+[M::worker_pipeline::5263.707*19.04] mapped 80583 sequences
+[M::worker_pipeline::5305.627*19.04] mapped 80299 sequences
+[M::worker_pipeline::5377.776*19.05] mapped 80072 sequences
+[M::worker_pipeline::5387.663*19.04] mapped 75810 sequences
+[M::worker_pipeline::5431.786*19.04] mapped 107145 sequences
+[M::worker_pipeline::5481.108*19.04] mapped 100632 sequences
+[M::worker_pipeline::5548.075*19.05] mapped 95497 sequences
+[M::worker_pipeline::5557.270*19.02] mapped 108192 sequences
+[M::worker_pipeline::5639.094*19.02] mapped 131347 sequences
+[M::worker_pipeline::5642.960*19.01] mapped 79236 sequences
+[M::worker_pipeline::5714.499*18.96] mapped 71522 sequences
+[M::worker_pipeline::5757.919*18.95] mapped 85091 sequences
+[M::worker_pipeline::5804.009*18.96] mapped 79258 sequences
+[M::worker_pipeline::5845.360*18.96] mapped 79276 sequences
+[M::worker_pipeline::5937.280*18.89] mapped 77282 sequences
+[M::worker_pipeline::5951.761*18.86] mapped 73251 sequences
+[M::worker_pipeline::6001.825*18.87] mapped 79371 sequences
+[M::worker_pipeline::6074.621*18.87] mapped 78579 sequences
+[M::worker_pipeline::6087.550*18.83] mapped 78515 sequences
+[M::worker_pipeline::6163.944*18.79] mapped 65105 sequences
+[M::worker_pipeline::6202.212*18.79] mapped 82266 sequences
+[M::worker_pipeline::6247.434*18.80] mapped 78222 sequences
+[M::worker_pipeline::6281.864*18.80] mapped 78752 sequences
+[M::worker_pipeline::6373.035*18.77] mapped 77934 sequences
+[M::worker_pipeline::6387.521*18.74] mapped 78304 sequences
+[M::worker_pipeline::6440.267*18.74] mapped 79033 sequences
+[M::worker_pipeline::6480.536*18.75] mapped 77796 sequences
+[M::worker_pipeline::6528.443*18.75] mapped 71542 sequences
+[M::worker_pipeline::6597.509*18.76] mapped 77852 sequences
+[M::worker_pipeline::6607.008*18.73] mapped 74999 sequences
+[M::main] Version: 2.30-r1287
+[M::main] CMD: minimap2 -ax map-ont -L -z 400,200 -Y -t 20 -R @RG\tID:S11\tSM:sample-11-female\tPL:ONT /data/hg38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna /data/merged_fastq/sample-11-female.fastq.gz
+[M::main] Real time: 6607.678 sec; CPU: 123776.316 sec; Peak RSS: 18.916 GB
+time="2026-05-05T17:08:01-05:00" level=error msg="Removing container ebcbfef06fc9bf27c88c479bfec07158566c195bbded87f7a2e704025537d391: adding container ebcbfef06fc9bf27c88c479bfec07158566c195bbded87f7a2e704025537d391 exit code 0: unable to open database file: no such file or directory"
+[bam_sort_core] merging from 29 files and 8 in-memory blocks...
+time="2026-05-05T17:27:48-05:00" level=error msg="Removing container ab76f4490a2ce5212b6bf95b45c863e16d68100782a4228e44aa6a29961bc69c: adding container ab76f4490a2ce5212b6bf95b45c863e16d68100782a4228e44aa6a29961bc69c exit code 0: unable to open database file: no such file or directory"
+time="2026-05-05T17:27:48-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"ef24e53aa8bf87c28a82cecb38a072a4218d205cbfcb66218d3e0465e14c1c2a\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json1339534671: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json2485413164: no space left on device
+Tue May  5 05:27:48 PM CDT 2026 - DONE: sample-11-female
+================================================
+Tue May  5 05:27:48 PM CDT 2026 - Starting alignment: sample-17-male
+time="2026-05-05T17:27:48-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"ad6327e9df76dc0d1ce742805d6a19c336c54a5eef6be64f1c3dc1cd72002d93\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json2996876175: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json1180079470: no space left on device
+time="2026-05-05T17:27:48-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"8135a7c2d047b17b2ceee15c578b22ba9b349213bda6a1cd086ba19b01194d9b\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json839208210: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json3124795542: no space left on device
+time="2026-05-05T17:27:48-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"58655b2f6a757e33e5873e3bef19105f39c211902472efda95425b8bfacf4e72\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json2687263100: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json4237923611: no space left on device
+Tue May  5 05:27:48 PM CDT 2026 - DONE: sample-17-male
+================================================
+Tue May  5 05:27:48 PM CDT 2026 - Starting alignment: sample-23-kid
+time="2026-05-05T17:27:48-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"1bbd332eb4e0ba9624d8ee4dbede1eff43a62f75ddc074dfd8aa29d06677d21b\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json2326204827: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json1598669856: no space left on device
+time="2026-05-05T17:27:48-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"4d1978f809e5e631c58bfc4200d803bf6b267a40b3c71fe10cfb8547eebf25a6\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json3374610562: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json2934205080: no space left on device
+time="2026-05-05T17:27:49-05:00" level=error msg="While recovering from a failure (saving incomplete layer metadata), error deleting layer \"25b98b2d56d734eb6201afbd1f12da8bc194cc6f0d6914be3a2db39eb8ce5c6c\": open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json495281288: no space left on device"
+Error: creating container storage: open /home/dabrahmb/.local/share/containers/storage/overlay-layers/.tmp-volatile-layers.json2347299286: no space left on device
+Tue May  5 05:27:49 PM CDT 2026 - DONE: sample-23-kid
+================================================
+Tue May  5 05:27:49 PM CDT 2026 - ALL THREE SAMPLES COMPLETE
+BAM files saved in: /data1/campwatchme_project/campwatchme-project/minimap-diff-parameters-trial/drop-z-score

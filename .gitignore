@@ -13,11 +13,6 @@ alignments/alignments_req_flags/*.bam.bai
 alignments/alignments_req_flags/*.fasta
 
 # ── Minimap2 parameter trials (large BAMs) ────────────────────────
-minimap-diff-parameters-trial/drop-all/*.bam
-minimap-diff-parameters-trial/drop-all/*.bam.bai
-minimap-diff-parameters-trial/drop-min-chain-score-40-to-20/
-minimap-diff-parameters-trial/drop-z-score/
-minimap-diff-parameters-trial/drop-s-80-to-40/
 
 # ── DeepTrio large outputs ────────────────────────────────────────
 deeptrio_output/intermediate_results_dir/
