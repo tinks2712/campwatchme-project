@@ -1,15 +1,17 @@
-# CampWatchMe
+# CampWatchMe: ONT Trio-Based Variant Calling Pipeline
 
-CampWatchMe is a genomic analysis project focused on trio-based variant calling (Mother, Father, Child) using Oxford Nanopore Technologies (ONT) long-read sequencing data. The pipeline utilizes Minimap2 for alignment and DeepTrio for high-accuracy variant calling in a pedigree context.
+CampWatchMe is a specialized genomic analysis project designed for pedigree-based variant calling using **Oxford Nanopore Technologies (ONT)** long-read sequencing. The project integrates high-performance alignment strategies with **DeepTrio** to achieve high-accuracy variant detection across a familial trio (Mother, Father, and Child).
 
 ## Project Overview
 
-This project processes ONT long-read data from three related individuals to identify genetic variants. It handles the full workflow from raw (merged) FASTQ files to filtered and statistically analyzed VCF files.
+The pipeline processes ONT data from raw FASTQ through to annotated VCFs, with a focus on overcoming challenges specific to long-read data such as ultra-long read alignment and computational overhead in deep learning-based variant callers.
 
-### Samples
-- **Sample 11**: Female, Parent 2 (Mother)
-- **Sample 17**: Male, Parent 1 (Father)
-- **Sample 23**: Child (Kid)
+### Sample Metadata & QC
+| Sample ID | Role | Flow Cell | Total Bases | Reads | Q10 | N50 | Notes |
+|-----------|------|-----------|-------------|-------|-----|-----|-------|
+| Sample 11 | Mother (P2) | PBI66128 | 83.4 GB | 14.33M | 93.5% | 9,826 bp | High coverage |
+| Sample 17 | Father (P1) | PBK21011 | 27.8 GB | 4.46M | 73.6% | 14,682 bp | Flow cell defect |
+| Sample 23 | Child (Kid) | PBK15059 | 21.1 GB | 3.68M | 83.7% | 11,425 bp | Flow cell defect |
 
 ## Repository Structure
 
@@ -17,66 +19,64 @@ This project processes ONT long-read data from three related individuals to iden
 .
 ├── scripts/                # Shell scripts for alignment, variant calling, and stats
 │   ├── alignment_repeat_req_flags.sh    # Main alignment script with optimized ONT flags
-│   ├── deeptrio_output_run.sh          # DeepTrio variant calling execution
-│   ├── vcf_stat_sample_*.sh            # Scripts for generating VCF stats reports
-│   └── ...
+│   ├── deeptrio_output_run.sh          # DeepTrio execution with environment tuning
+│   ├── unmapped_seq_ext_minimap_17_23.sh # Extraction of unmapped reads for BLAST
+│   └── vcf_stat_sample_*.sh            # VCF statistics and reporting
 ├── extra/                  # QC and summary statistics
-│   ├── samtools-coverage/  # Coverage reports per sample
-│   ├── samtools-flagstat/  # Mapping statistics
-│   └── samtools-idxstat/   # Alignment distribution across chromosomes
-├── hg38/                   # Reference genome (GCA_000001405.15)
-├── deeptrio_output/        # Directory for VCF and gVCF outputs
-└── minimap-diff-parameters-trial/ # Experimental alignment parameter tests
+│   ├── samtools-coverage/  # Coverage depth per chromosome
+│   ├── samtools-flagstat/  # Mapping quality statistics
+│   └── samtools-idxstat/   # Read distribution per contig
+├── hg38/                   # Reference genome (GCA_000001405.15 no-alt analysis set)
+├── deeptrio_output/        # Final VCF and gVCF outputs
+└── minimap-diff-parameters-trial/ # Parameter benchmarking for alignment optimization
 ```
 
-## Workflow & Pipeline
+## Technical Workflow
 
-### 1. Alignment
-The project uses `minimap2` with specific presets for ONT data (`-ax map-ont`). The scripts include optimized parameters to handle long reads and complex genomic regions:
-- `-L`: Moves long CIGAR strings to the `CG` tag.
-- `-z 600,200`: Adjusted Z-score to prevent splitting of ultra-long reads.
-- `-Y`: Uses soft-clipping for supplementary alignments.
+### 1. Optimized ONT Alignment
+Using `minimap2` (v2.30), we apply specific flags to handle the unique characteristics of ONT long reads:
+- `-ax map-ont`: Preset for Oxford Nanopore data.
+- `-L`: Moves long CIGAR strings (>65535 operations) to the `CG` tag, ensuring compatibility with standard BAM tools.
+- `-z 600,200`: Increases the Z-drop score from the default 400. This prevents the splitting of ultra-long reads in regions with high insertion/deletion rates.
+- `-Y`: Enables soft-clipping for supplementary alignments, preserving unaligned bases for downstream analysis.
 
-### 2. Variant Calling
-Variant calling is performed using **DeepTrio** (v1.10.0), which jointly analyzes the trio to improve accuracy and Mendelian consistency.
-- **Model Type**: ONT
-- **Reference**: GRCh38 (no alt analysis set)
-- **Environment**: Optimized with specific thread and memory settings (`OPENBLAS_NUM_THREADS=1`, `MALLOC_ARENA_MAX=2`) to run efficiently on HPC environments.
+### 2. DeepTrio Variant Calling (v1.10.0)
+DeepTrio jointly analyzes the trio to improve Mendelian consistency. Due to the high computational demand, the environment is tuned for HPC stability:
+- **PID Limit (`--pids-limit 8192`)**: DeepTrio generates hundreds of helper processes; increasing this prevents container crashes.
+- **Thread Management**: `OPENBLAS_NUM_THREADS=1` and `OMP_NUM_THREADS=1` are set to prevent thread explosion (exponentially increasing threads across shards), which can lead to "Resource temporarily unavailable" errors.
+- **Memory Allocation**: `MALLOC_ARENA_MAX=2` limits the number of memory pools, preventing overhead and background thread creation failures in `jemalloc`.
+- **Parallelization**: `num_shards` is set to 8 to balance throughput and resource constraints.
 
-### 3. Quality Control & Statistics
-Post-calling analysis includes:
-- `vcf_stats_report`: Visualizing variant quality and distribution.
-- `samtools coverage/flagstat`: Verifying alignment quality and depth.
+### 3. Handling Unmapped Reads
+For samples with lower alignment rates (Sample 17 and 23), unmapped reads are extracted for further investigation (e.g., BLAST analysis) to identify potential contaminants or non-human sequences:
+- `samtools fasta -f 4 -F 0`: Specifically extracts unmapped reads while retaining secondary/supplementary info.
 
-## Prerequisites
+## Prerequisites & Environment
 
-The pipeline is designed to run via **Podman** (or Docker) to ensure environment reproducibility.
+The pipeline is fully containerized using **Podman** for reproducibility and security.
 
-### Required Container Images:
+### Images
 - `staphb/minimap2:2.30`
 - `staphb/samtools:1.21`
 - `google/deepvariant:deeptrio-1.10.0`
 
-### Data Requirements:
-- Reference Genome: `GCA_000001405.15_GRCh38_no_alt_analysis_set.fna`
-- Merged FASTQ files for the trio.
+### Security
+The DeepTrio image has been scanned using `Trivy` (see `deeptrio-trial/trivy_deeptrio_scan.txt`) to monitor vulnerabilities in the deep learning stack.
 
-## Usage
+## Usage Instructions
 
-### Alignment
-To run the alignment for all three samples:
+### Run Alignment
 ```bash
-./scripts/alignment_repeat_req_flags.sh
+bash scripts/alignment_repeat_req_flags.sh
 ```
 
-### Variant Calling
-To run DeepTrio:
+### Run Variant Calling
+DeepTrio runs in the background using `nohup`. Logs are directed to `deeptrio_output/deeptrio_run.log`.
 ```bash
-./scripts/deeptrio_output_run.sh
+bash scripts/deeptrio_output_run.sh
 ```
 
-### Stats Generation
-To generate VCF statistics for the kid:
+### Extract Unmapped Reads
 ```bash
-./scripts/vcf_stat_sample_23_kid.sh
+bash scripts/unmapped_seq_ext_minimap_17_23.sh
 ```
