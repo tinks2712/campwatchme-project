@@ -1,0 +1,70 @@
+# ── Reference genome ──────────────────────────────────────────────
+hg38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+hg38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.fai
+hg38/db/GRCh38_no_alt.*
+
+# ── Raw sequencing data ───────────────────────────────────────────
+merged_fastq/
+sample_seq_data/
+
+# ── Alignments ────────────────────────────────────────────────────
+alignments/alignments_req_flags/*.bam
+alignments/alignments_req_flags/*.bam.bai
+alignments/alignments_req_flags/*.fasta
+
+# ── Minimap2 parameter trials (large BAMs) ────────────────────────
+minimap-diff-parameters-trial/drop-all/*.bam
+minimap-diff-parameters-trial/drop-all/*.bam.bai
+minimap-diff-parameters-trial/drop-min-chain-score-40-to-20/
+minimap-diff-parameters-trial/drop-z-score/
+minimap-diff-parameters-trial/drop-s-80-to-40/
+
+# ── DeepTrio large outputs ────────────────────────────────────────
+deeptrio_output/intermediate_results_dir/
+deeptrio_output/*.g.vcf.gz
+deeptrio_output/*.g.vcf.gz.tbi
+deeptrio_output/*.vcf.gz
+deeptrio_output/*.vcf.gz.tbi
+
+# ── BLAST ─────────────────────────────────────────────────────────
+blast/sample-17-male_unmapped_blast.txt
+
+# ── Samtools large outputs ────────────────────────────────────────
+extra/samtools-depth/
+extra/samtools-stat/
+
+# ── Log files inside scripts ──────────────────────────────────────
+scripts/*.log
+scripts/*.err
+
+# ── Generic file types ────────────────────────────────────────────
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bam.bai
+*.cram
+*.cram.crai
+*.sam
+*.vcf.gz
+*.tbi
+*.bcf
+*.fa
+*.fasta
+*.fasta.gz
+*.fna
+*.fna.fai
+*.tfrecord
+*.tfrecord.gz
+*.tsv.gz
+*.paf
+*.mmi
+
+# ── System ────────────────────────────────────────────────────────
+.DS_Store
+__pycache__/
+*.pyc
+*.tmp
+slurm-*.out
+hg38/db/trial/all_hits_by_region.txt
+hg38/db/trial/sample-17-male_unmapped_blast.txt
