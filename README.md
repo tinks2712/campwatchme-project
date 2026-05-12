@@ -75,25 +75,4 @@ The pipeline is fully containerized using **Podman** for reproducibility and sec
 ### Security
 The DeepTrio image has been scanned using `Trivy` (see `deeptrio-trial/trivy_deeptrio_scan.txt`) to monitor vulnerabilities in the deep learning stack.
 
-## Usage Instructions
 
-### Run Alignment
-```bash
-bash scripts/alignment_repeat_req_flags.sh
-```
-
-### Run Variant Calling
-DeepTrio runs in the background using `nohup`. Logs are directed to `deeptrio_output/deeptrio_run.log`.
-```bash
-bash scripts/deeptrio_output_run.sh
-```
-
-### Run Parameter Trials
-```bash
-bash minimap-diff-parameters-trial/rerun_missing_samples.sh
-```
-
-### Extract Unmapped Reads
-```bash
-bash scripts/unmapped_seq_ext_minimap_17_23.sh
-```
